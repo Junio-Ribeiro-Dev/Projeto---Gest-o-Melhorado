@@ -8,12 +8,12 @@
             <div class="row pt-2">
                 <div class="col ps-4">
                     <h1 class="display-6 mb-3">
-                        <i class="bi bi-journal-medical"></i> My Courses
+                        <i class="bi bi-journal-medical"></i> Meus Cursos
                     </h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">My courses</li>
+                            <li class="breadcrumb-item active" aria-current="page">Meus Cursos</li>
                         </ol>
                     </nav>
                     <div class="mb-4 mt-4">
@@ -21,8 +21,8 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Course Name</th>
-                                        <th scope="col">Actions</th>
+                                        <th scope="col">Nome do Curso</th>
+                                        <th scope="col">Ação</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -40,9 +40,9 @@
                                                         'session_id' => $course->session_id,
                                                         'section_id' => $class_info->section_id,
                                                         'student_id' => Auth::user()->id
-                                                        ])}}" role="button" class="btn btn-sm btn-outline-primary"><i class="bi bi-cloud-sun"></i> View Marks</a>
-                                                    <a href="{{route('course.syllabus.index', ['course_id'  => $course->id])}}" role="button" class="btn btn-sm btn-outline-primary"><i class="bi bi-journal-text"></i> View Syllabus</a>
-                                                    <a href="{{route('assignment.list.show', ['course_id' => $course->id])}}" role="button" class="btn btn-sm btn-outline-primary"><i class="bi bi-file-post"></i> View Assignments</a>
+                                                        ])}}" role="button" class="btn btn-sm btn-outline-primary"><i class="bi bi-cloud-sun"></i> Ver Marcação</a>
+                                                    <a href="{{route('course.syllabus.index', ['course_id'  => $course->id])}}" role="button" class="btn btn-sm btn-outline-primary"><i class="bi bi-journal-text"></i> Ver Estudo</a>
+                                                    <a href="{{route('assignment.list.show', ['course_id' => $course->id])}}" role="button" class="btn btn-sm btn-outline-primary"><i class="bi bi-file-post"></i> Ver Frequencias</a>
                                                 </div>
                                             </td>
                                         </tr>

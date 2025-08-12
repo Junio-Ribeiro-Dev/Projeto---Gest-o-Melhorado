@@ -15,13 +15,13 @@
             <div class="row pt-2">
                 <div class="col ps-4">
                     <h1 class="display-6 mb-3">
-                        <i class="bi bi-person-lines-fill"></i> Teacher
+                        <i class="bi bi-person-lines-fill"></i> Professor
                     </h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                          <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
-                          <li class="breadcrumb-item"><a href="{{route('teacher.list.show')}}">Teacher List</a></li>
-                          <li class="breadcrumb-item active" aria-current="page">Profile</li>
+                          <li class="breadcrumb-item"><a href="{{route('home')}}">Início</a></li>
+                          <li class="breadcrumb-item"><a href="{{route('teacher.list.show')}}">Lista de Professores</a></li>
+                          <li class="breadcrumb-item active" aria-current="page">Perfil</li>
                         </ol>
                     </nav>
                     <div class="mb-4">
@@ -30,55 +30,55 @@
                                 <div class="card bg-light">
                                     <div class="px-5 pt-2">
                                         @if (isset($teacher->photo))
-                                            <img src="{{asset('/storage'.$teacher->photo)}}" class="rounded-3 card-img-top" alt="Profile photo">
+                                            <img src="{{asset('/storage'.$teacher->photo)}}" class="rounded-3 card-img-top" alt="Foto do perfil">
                                         @else
-                                            <img src="{{asset('imgs/profile.png')}}" class="rounded-3 card-img-top" alt="Profile photo">
+                                            <img src="{{asset('imgs/profile.png')}}" class="rounded-3 card-img-top" alt="Foto do perfil">
                                         @endif
                                     </div>
                                     <div class="card-body">
                                         <h5 class="card-title">{{$teacher->first_name}} {{$teacher->last_name}}</h5>
                                     </div>
                                     <ul class="list-group list-group-flush">
-                                        <li class="list-group-item">Gender: {{$teacher->gender}}</li>
-                                        <li class="list-group-item">Phone: {{$teacher->phone}}</li>
+                                        <li class="list-group-item">Gênero: {{$teacher->gender}}</li>
+                                        <li class="list-group-item">Telefone: {{$teacher->phone}}</li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="col-sm-8 col-md-9">
                                 <div class="p-3 mb-3 border rounded bg-white">
-                                    <h6>Teacher Information</h6>
+                                    <h6>Informações do Professor</h6>
                                     <table class="table table-responsive mt-3">
                                         <tbody>
                                             <tr>
-                                                <th scope="row">First Name:</th>
+                                                <th scope="row">Nome:</th>
                                                 <td>{{$teacher->first_name}}</td>
-                                                <th>Last Name:</th>
+                                                <th>Sobrenome:</th>
                                                 <td>{{$teacher->last_name}}</td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">Email:</th>
                                                 <td>{{$teacher->email}}</td>
-                                                <th scope="row">Nationality:</th>
+                                                <th scope="row">Nacionalidade:</th>
                                                 <td>{{$teacher->nationality}}</td>
                                             </tr>
                                             <tr>
                                             </tr>
                                             <tr>
-                                                <th scope="row">Address:</th>
+                                                <th scope="row">Endereço:</th>
                                                 <td>{{$teacher->address}}</td>
-                                                <th>Address2:</th>
+                                                <th>Complemento:</th>
                                                 <td>{{$teacher->address2}}</td>
                                             </tr>
                                             <tr>
-                                                <th scope="row">City:</th>
+                                                <th scope="row">Cidade:</th>
                                                 <td>{{$teacher->city}}</td>
-                                                <th>Zip:</th>
+                                                <th>CEP:</th>
                                                 <td>{{$teacher->zip}}</td>
                                             </tr>
                                             <tr>
-                                                <th scope="row">Phone:</th>
+                                                <th scope="row">Telefone:</th>
                                                 <td>{{$teacher->phone}}</td>
-                                                <th>Gender:</th>
+                                                <th>Gênero:</th>
                                                 <td>{{$teacher->gender}}</td>
                                             </tr>
                                             <tr>

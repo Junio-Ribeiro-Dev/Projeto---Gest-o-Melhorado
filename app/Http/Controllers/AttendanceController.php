@@ -117,17 +117,35 @@ class AttendanceController extends Controller
      * @param  \Illuminate\Http\AttendanceStoreRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(AttendanceStoreRequest $request)
-    {
-        try {
-            $attendanceRepository = new AttendanceRepository();
-            $attendanceRepository->saveAttendance($request->validated());
+public function store(Request $request)
+{
+    $request->validate([
+        'attendance_datetime' => 'required|date',
+        'student_ids' => 'required|array',
+        'status' => 'array',
+    ]);
 
-            return back()->with('status', 'Attendance save was successful!');
-        } catch (\Exception $e) {
-            return back()->withError($e->getMessage());
-        }
+    $attendanceDateTime = $request->input('attendance_datetime');
+
+    foreach ($request->student_ids as $studentId) {
+        $status = isset($request->status[$studentId]) ? 1 : 0;
+
+        Attendance::create([
+            'student_id' => $studentId,
+            'class_id' => $request->class_id,
+            'course_id' => $request->course_id,
+            'section_id' => $request->section_id,
+            'session_id' => $request->session_id,
+            'status' => $status,
+            'attendance_date' => $attendanceDateTime,
+        ]);
     }
+
+    return redirect()->back()->with('success', 'Presenças registradas com sucesso!');
+}
+
+
+
 
     /**
      * Display the specified resource.

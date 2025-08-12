@@ -2,46 +2,90 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-start">
+    <div class="row">
         @include('layouts.left-menu')
-        <div class="col-xs-11 col-sm-11 col-md-11 col-lg-10 col-xl-10 col-xxl-10">
-            <div class="row pt-2">
-                <div class="col ps-4">
-                    <h1 class="display-6 mb-3"><i class="bi bi-file-plus"></i> Edit Exam Rule</h1>
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
-                            <li class="breadcrumb-item"><a href="{{url()->previous()}}">Exams Rules</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Edit Exam Rule</li>
-                        </ol>
-                    </nav>
-                    @include('session-messages')
-                    <div class="row">
-                        <div class="col-5 mb-4">
-                            <div class="p-3 border bg-light shadow-sm">
-                                <form action="{{route('exam.rule.update')}}" method="POST">
-                                    @csrf
-                                    <input type="hidden" name="exam_rule_id" value="{{$exam_rule_id}}">
-                                    <div class="mt-2">
-                                        <label for="inputTotalMarks" class="form-label">Total Marks<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                        <input type="number" class="form-control" id="inputTotalMarks" value="{{$exam_rule->total_marks}}" name="total_marks" step="0.01">
-                                    </div>
-                                    <div class="mt-2">
-                                        <label for="inputPassMarks" class="form-label">Pass Marks<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                        <input type="number" class="form-control" id="inputPassMarks" value="{{$exam_rule->pass_marks}}" name="pass_marks" step="0.01">
-                                    </div>
-                                    <div class="mt-2">
-                                        <label for="inputMarksDistributionNote" class="form-label">Marks Distribution Note<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                        <textarea class="form-control" id="inputMarksDistributionNote" rows="3" name="marks_distribution_note">{{$exam_rule->marks_distribution_note}}</textarea>
-                                    </div>
-                                    <button type="submit" class="mt-3 btn btn-sm btn-outline-primary"><i class="bi bi-check"></i> Save</button>
-                                </form>
+
+        <div class="col-lg-10 col-md-9 col-sm-12">
+            <div class="pt-3">
+                <h1 class="display-6 fw-bold mb-3 text-primary">
+                    <i class="bi bi-file-plus"></i> Edit Exam Rule
+                </h1>
+
+                <nav aria-label="breadcrumb" class="mb-4">
+                    <ol class="breadcrumb bg-light p-2 rounded">
+                        <li class="breadcrumb-item">
+                            <a href="{{ route('home') }}"><i class="bi bi-house"></i> Home</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="{{ url()->previous() }}">Exams Rules</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">Edit Exam Rule</li>
+                    </ol>
+                </nav>
+
+                @include('session-messages')
+
+                <div class="card shadow-sm border-0">
+                    <div class="card-header bg-primary text-white fw-semibold">
+                        <i class="bi bi-pencil-square"></i> Update Rule
+                    </div>
+                    <div class="card-body">
+                        <form action="{{ route('exam.rule.update') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="exam_rule_id" value="{{ $exam_rule_id }}">
+
+                            <div class="mb-3">
+                                <label for="inputTotalMarks" class="form-label">
+                                    Total Marks <sup><i class="bi bi-asterisk text-danger"></i></sup>
+                                </label>
+                                <input type="number" 
+                                    class="form-control" 
+                                    id="inputTotalMarks" 
+                                    name="total_marks" 
+                                    value="{{ $exam_rule->total_marks }}" 
+                                    step="0.01" 
+                                    required>
                             </div>
-                        </div>
+
+                            <div class="mb-3">
+                                <label for="inputPassMarks" class="form-label">
+                                    Pass Marks <sup><i class="bi bi-asterisk text-danger"></i></sup>
+                                </label>
+                                <input type="number" 
+                                    class="form-control" 
+                                    id="inputPassMarks" 
+                                    name="pass_marks" 
+                                    value="{{ $exam_rule->pass_marks }}" 
+                                    step="0.01" 
+                                    required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="inputMarksDistributionNote" class="form-label">
+                                    Marks Distribution Note <sup><i class="bi bi-asterisk text-danger"></i></sup>
+                                </label>
+                                <textarea 
+                                    class="form-control" 
+                                    id="inputMarksDistributionNote" 
+                                    rows="3" 
+                                    name="marks_distribution_note" 
+                                    required>{{ $exam_rule->marks_distribution_note }}</textarea>
+                            </div>
+
+                            <div class="d-flex justify-content-end">
+                                <a href="{{ url()->previous() }}" class="btn btn-outline-secondary me-2">
+                                    <i class="bi bi-arrow-left"></i> Cancel
+                                </a>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="bi bi-check-circle"></i> Save Changes
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
+
+                @include('layouts.footer')
             </div>
-            @include('layouts.footer')
         </div>
     </div>
 </div>

@@ -4,26 +4,26 @@
 <div class="container">
     <div class="row justify-content-start">
         @include('layouts.left-menu')
-        <div class="col-xs-11 col-sm-11 col-md-11 col-lg-10 col-xl-10 col-xxl-10">
+        <div class="col-12 col-lg-10">
             <div class="row pt-2">
                 <div class="col ps-4">
                     <h1 class="display-6 mb-3">
-                        <i class="bi bi-cloud-sun"></i> Course Marks
+                        <i class="bi bi-cloud-sun"></i> Notas do Curso
                     </h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
-                            <li class="breadcrumb-item"><a href="{{url()->previous()}}">My Courses</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Course Marks</li>
+                            <li class="breadcrumb-item"><a href="{{route('home')}}">Início</a></li>
+                            <li class="breadcrumb-item"><a href="{{url()->previous()}}">Meus Cursos</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Notas do Curso</li>
                         </ol>
                     </nav>
-                    <h5>Course: {{$course_name}}</h5>
-                    <div class="mb-4 mt-4 p-3 bg-white border shadow-sm">
+                    <h5>Curso: {{$course_name}}</h5>
+                    <div class="mb-4 mt-4 p-3 bg-white border shadow-sm table-responsive">
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">Exam Name</th>
-                                    <th scope="col">Marks</th>
+                                    <th scope="col">Nome do Exame</th>
+                                    <th scope="col">Notas</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -38,14 +38,14 @@
                     </div>
 
                     @if(count($final_marks) > 0)
-                    <h5>Final Result</h5>
-                    <div class="bg-white border mt-4 p-3 shadow-sm">
+                    <h5>Resultado Final</h5>
+                    <div class="bg-white border mt-4 p-3 shadow-sm table-responsive">
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">Total Marks</th>
-                                    <th scope="col">Grade Points</th>
-                                    <th scope="col">Grade</th>
+                                    <th scope="col">Notas Totais</th>
+                                    <th scope="col">Pontos de Nota</th>
+                                    <th scope="col">Conceito</th>
                                 </tr>
                             </thead>
                             <tbody>

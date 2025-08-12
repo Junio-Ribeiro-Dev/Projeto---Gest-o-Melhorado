@@ -18,14 +18,18 @@ class Attendance extends Model
      *
      * @var array
      */
-    protected $fillable = [
-        'student_id',
-        'class_id',
-        'section_id',
-        'session_id',
-        'course_id',
-        'status',
-    ];
+// Model Attendance.php
+
+protected $fillable = [
+    'student_id',
+    'class_id',
+    'course_id',
+    'section_id',
+    'session_id',
+    'status',
+    'attendance_date',
+];
+
 
     /**
      * Get the student for attendances.
